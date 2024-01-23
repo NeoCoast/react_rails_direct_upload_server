@@ -1,0 +1,39 @@
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: crossbraining_test
+  pool: 10
+  username: <%= ENV['POSTGRES_USER'] || '' %>
+  password: <%= ENV['POSTGRES_PASSWORD'] || ''%>
+  host: localhost
+  port: 5432
+
+development:
+  username: <%= ENV['POSTGRES_USER'] || '' %>
+  password: <%= ENV['POSTGRES_PASSWORD'] || '' %>
+  host: <%= ENV['POSTGRES_HOST'] || '' %>
+  database: <%= "#{ENV['DATABASE_NAME']}" %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 50
+  port: 5432
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: <%= "#{ENV['DATABASE_NAME']}" || '' %>
+  pool: <%= ENV['RAILS_MAX_THREADS'] || ENV['DB_POOL'] || 5 %>
+  username: <%= ENV['POSTGRES_USER'] || '' %>
+  password: <%= ENV['POSTGRES_PASSWORD'] || '' %>
+  host: <%= ENV['POSTGRES_HOST'] || '' %>
+  port: 5432
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: <%= "#{ENV['DATABASE_NAME']}" || '' %>
+  pool: <%= ENV['RAILS_MAX_THREADS'] || ENV['DB_POOL'] || 5 %>
+  username: <%= ENV['POSTGRES_USER'] || '' %>
+  password: <%= ENV['POSTGRES_PASSWORD'] || '' %>
+  host: <%= ENV['POSTGRES_HOST'] || '' %>
+  port: 5432
